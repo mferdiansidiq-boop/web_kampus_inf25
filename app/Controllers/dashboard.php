@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controllers;
-use App\Controller\BaseController;
+use App\Controllers\BaseController;
 
 class Dashboard extends BaseController
 {
@@ -11,7 +11,7 @@ class Dashboard extends BaseController
         'judul' => '',
         'subjudul' => '',
         'menu' => 'dashboard',
-        'submenu' => 'dashboard'
+        'submenu' => 'dashboard',
         'page' => 'admin/v_dashboard',
        ];
        return view('v_template_back',$data);
