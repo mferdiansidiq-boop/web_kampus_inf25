@@ -1,15 +1,17 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Admin;
+use App\Controllers\BaseController;
 
-class Home extends BaseController
+class Dashboard extends BaseController
 {
     public function index()
     {
        $data = [
         'judul' => '',
         'subjudul' => '',
-        'page' =>
-       ]
+        'page' => 'admin/v_dashboard',
+       ];
+       return viev('v_template_back',$data);
     }
 }
