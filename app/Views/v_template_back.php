@@ -197,11 +197,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- Add icons to the links using the .nav-icon class
       with font-awesome or any other icon font library -->
                <li class="nav-item">
-                   <a href="<?= base_url('Admin/Dashboard') ?>" class="nav-link>
+                   <a href="<?= base_url('admin/dashboard') ?>" class="nav-link>
                     <i class="nav-icon fas fa-tachometer-alt"></i>
-                   <p>
-                        Dashboard
-              </p>
+                   <p>Dashboard</p>
             </a>
           </li>
 
@@ -225,7 +223,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <i class="far fa-circle nav-icon"></i>
                   <p>Intactive Page<p>
               <li class="nav-item">
-                <a href="<?= base_url('Admin/User') ?>" class="nav-link">
+                <a href="<?= base_url('admin/user') ?>" class="nav-link">
                   <i class="nav-icon fas fa-user"></i>
                   <p>
                      User

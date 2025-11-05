@@ -3,15 +3,15 @@
 namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 
-class Dashboard extends BaseController
+class User extends BaseController
 
 {
     public function index(): string
     {
         $data = [    
-            'judul' => '',
-            'subjudul' => '',
-            'page' => 'admin/v_dashboard',
+            'judul' => 'User',
+            'subjudul' => 'User',
+            'page' => 'admin/v_user',
         ];
         return view('v_template_back',$data);
     }
