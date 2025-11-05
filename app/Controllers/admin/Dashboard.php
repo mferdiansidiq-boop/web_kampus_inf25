@@ -11,6 +11,8 @@ class Dashboard extends BaseController
         $data = [    
             'judul' => '',
             'subjudul' => '',
+            'menu' => 'dashboard',
+            'submenu' => 'dashboard',
             'page' => 'admin/v_dashboard',
         ];
         return view('v_template_back',$data);

@@ -70,7 +70,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <img src="<?= base_url('back')?>dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Brad Diesel
@@ -86,7 +86,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="<?= base_url('back')?>dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   John Pierce
@@ -102,7 +102,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="<?= base_url('back')?>dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Nora Silvester
@@ -195,9 +195,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+      with font-awesome or any other icon font library -->
+               <li class="nav-item">
+                   <a href="<?= base_url('Admin/Dashboard') ?>" class="nav-link>
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                   <p>
+                        Dashboard
+              </p>
+            </a>
+          </li>
+
           <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+            <a href='#' class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Starter Pages
@@ -212,13 +221,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="#" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Inactive Page</p>
+                  <p>Intactive Page<p>
+              <li class="nav-item">
+                <a href="<?= base_url('Admin/User') ?>" class="nav-link">
+                  <i class="nav-icon fas fa-user"></i>
+                  <p>
+                     User
+                  </p>
                 </a>
               </li>
-            </ul>
-          </li>
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -234,6 +248,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
     <!-- /.sidebar -->
   </aside>
+
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -259,61 +274,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+         <!-- konten-->
+        <?php
+        if ($page) {
+           echo view($page);
+        } ?>
 
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
-            </div>
-
-            <div class="card card-primary card-outline">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
-            </div><!-- /.card -->
-          </div>
-          <!-- /.col-md-6 -->
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-header">
-                <h5 class="m-0">Featured</h5>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-
-            <div class="card card-primary card-outline">
-              <div class="card-header">
-                <h5 class="m-0">Featured</h5>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-          <!-- /.col-md-6 -->
+          <!-- end kontent-->
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -347,10 +314,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- REQUIRED SCRIPTS -->
 
 <!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
+<script src="<?= base_url('back')?>plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?= base_url('back')?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
+<script src="<?= base_url('back')?>dist/js/adminlte.min.js"></script>
 </body>
 </html>
