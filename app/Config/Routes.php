@@ -9,6 +9,11 @@ $routes->get('/', 'Home::index');
 
 $routes->setAutoRoute(true);
 
-$routes->get('Admin/Dashboard', 'Admin\Dashboard::index');
+$routes->get('admin/dashboard', 'Admin\Dashboard::index');
+
+$routes->get('admin/user', 'Admin\User::index');
+
+
+
 
 

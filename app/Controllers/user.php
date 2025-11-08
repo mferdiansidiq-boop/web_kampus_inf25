@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\admin;
 use App\Controllers\BaseController;
 
 class User extends BaseController
@@ -8,11 +8,11 @@ class User extends BaseController
     public function index()
     {
        $data = [
-        'judul' => 'User',
-        'subjudul' => 'user',
-        'menu' => 'User',
-        'submenu' => 'User',
-        'page' => 'admin/v_User',
+             'judul' => 'user',
+             'subjudul' => 'user',
+             'menu' => 'user',
+             'submenu' => 'user',
+             'page' => 'admin/v_user',
        ];
        return view('v_template_back',$data);
 
