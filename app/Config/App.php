@@ -18,6 +18,7 @@ class App extends BaseConfig
      */
     public string $baseURL = 'http://localhost/web_kampus_inf25/public/';
 
+
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
      * If you want to accept multiple Hostnames, set this.
@@ -57,7 +58,7 @@ class App extends BaseConfig
      *
      * WARNING: If you set this to 'PATH_INFO', URIs will always be URL-decoded!
      */
-    public string $uriProtocol = 'REQUEST_URI';
+    public string $uriProtocol = 'http://localhost/web_kampus_inf25/public/';
 
     /*
     |--------------------------------------------------------------------------
