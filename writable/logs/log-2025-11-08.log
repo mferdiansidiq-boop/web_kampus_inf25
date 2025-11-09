@@ -1,0 +1,42 @@
+CRITICAL - 2025-11-08 11:31:51 --> ErrorException: Undefined variable $menu
+[Method: GET, Route: admin/dashboard]
+in APPPATH\Views\v_template_back.php on line 201.
+ 1 APPPATH\Views\v_template_back.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $menu', 'C:\\laragon\\www\\web_kampus_inf25\\app\\Views\\v_template_back.php', 201)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\web_kampus_inf25\\app\\Views\\v_template_back.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('v_template_back', [], true)
+ 5 APPPATH\Controllers\admin\Dashboard.php(16): view('v_template_back', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\admin\Dashboard->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\admin\Dashboard))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-08 11:36:26 --> ErrorException: Undefined variable $menu
+[Method: GET, Route: admin/dashboard]
+in APPPATH\Views\v_template_back.php on line 203.
+ 1 APPPATH\Views\v_template_back.php(203): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $menu', 'C:\\laragon\\www\\web_kampus_inf25\\app\\Views\\v_template_back.php', 203)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\web_kampus_inf25\\app\\Views\\v_template_back.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('v_template_back', [], true)
+ 5 APPPATH\Controllers\admin\Dashboard.php(16): view('v_template_back', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\admin\Dashboard->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\admin\Dashboard))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-08 11:39:08 --> ErrorException: Undefined variable $menu
+[Method: GET, Route: admin/dashboard]
+in APPPATH\Views\v_template_back.php on line 202.
+ 1 APPPATH\Views\v_template_back.php(202): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $menu', 'C:\\laragon\\www\\web_kampus_inf25\\app\\Views\\v_template_back.php', 202)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\web_kampus_inf25\\app\\Views\\v_template_back.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('v_template_back', [], true)
+ 5 APPPATH\Controllers\admin\Dashboard.php(16): view('v_template_back', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\admin\Dashboard->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\admin\Dashboard))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
