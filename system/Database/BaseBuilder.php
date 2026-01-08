@@ -256,7 +256,7 @@ class BaseBuilder
      * Specifies which sql statements
      * support the ignore option.
      *
-     * @var array<string, string>
+     * @var array
      */
     protected $supportedIgnoreStatements = [];
 
@@ -3380,8 +3380,6 @@ class BaseBuilder
      * Resets the query builder values.  Called by the get() function
      *
      * @param array $qbResetItems An array of fields to reset
-     *
-     * @return void
      */
     protected function resetRun(array $qbResetItems)
     {
@@ -3392,8 +3390,6 @@ class BaseBuilder
 
     /**
      * Resets the query builder values.  Called by the get() function
-     *
-     * @return void
      */
     protected function resetSelect()
     {
@@ -3411,7 +3407,7 @@ class BaseBuilder
             'QBUnion'    => [],
         ]);
 
-        if ($this->db instanceof BaseConnection) {
+        if (! empty($this->db)) {
             $this->db->setAliasedTables([]);
         }
 
@@ -3425,8 +3421,6 @@ class BaseBuilder
      * Resets the query builder "write" values.
      *
      * Called by the insert() update() insertBatch() updateBatch() and delete() functions
-     *
-     * @return void
      */
     protected function resetWrite()
     {

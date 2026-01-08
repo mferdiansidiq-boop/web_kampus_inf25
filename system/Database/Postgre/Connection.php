@@ -242,7 +242,8 @@ class Connection extends BaseConnection
      *
      * @param array|bool|float|int|object|string|null $str
      *
-     * @return ($str is array ? array : float|int|string)
+     * @return         array|float|int|string
+     * @phpstan-return ($str is array ? array : float|int|string)
      */
     public function escape($str)
     {
@@ -516,8 +517,6 @@ class Connection extends BaseConnection
 
     /**
      * Build a DSN from the provided parameters
-     *
-     * @return void
      */
     protected function buildDSN()
     {

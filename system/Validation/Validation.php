@@ -23,6 +23,7 @@ use CodeIgniter\HTTP\Method;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\Validation\Exceptions\ValidationException;
 use CodeIgniter\View\RendererInterface;
+use Config\Validation as ValidationConfig;
 
 /**
  * Validator
@@ -95,7 +96,7 @@ class Validation implements ValidationInterface
     /**
      * Our configuration.
      *
-     * @var object{ruleSets: list<class-string>}
+     * @var ValidationConfig
      */
     protected $config;
 
@@ -109,7 +110,7 @@ class Validation implements ValidationInterface
     /**
      * Validation constructor.
      *
-     * @param object{ruleSets: list<class-string>} $config
+     * @param ValidationConfig $config
      */
     public function __construct($config, RendererInterface $view)
     {
@@ -869,7 +870,7 @@ class Validation implements ValidationInterface
             ARRAY_FILTER_USE_KEY,
         );
 
-        return implode("\n", $errors);
+        return $errors === [] ? '' : implode("\n", $errors);
     }
 
     /**

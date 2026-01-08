@@ -18,6 +18,8 @@ use CodeIgniter\Exceptions\InvalidArgumentException;
 use Config\Database as DbConfig;
 
 /**
+ * Class Config
+ *
  * @see \CodeIgniter\Database\ConfigTest
  */
 class Config extends BaseConfig
@@ -139,8 +141,6 @@ class Config extends BaseConfig
 
     /**
      * Ensures the database Connection Manager/Factory is loaded and ready to use.
-     *
-     * @return void
      */
     protected static function ensureFactory()
     {

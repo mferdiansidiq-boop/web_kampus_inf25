@@ -1,19 +1,21 @@
 <?php
 
 namespace App\Controllers\Admin;
+
 use App\Controllers\BaseController;
 
 class Dashboard extends BaseController
-
 {
     public function index()
     {
-        $data = [    
+        $data = [
             'judul' => 'Dashboard',
-            'subjudul' => 'dashboard',
+            'subjudul' => 'Dashboard',
             'menu' => 'dashboard',
-            'page' => 'admin/v_dashboard',
+            'submenu' => 'dashboard',
+            'page' => 'admin/v_dashboard'
         ];
-        return view('v_template_back',$data);
+        
+        return view('v_back_end', $data);
     }
 }
