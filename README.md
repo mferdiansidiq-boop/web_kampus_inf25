@@ -1,5 +1,19 @@
 # CodeIgniter 4 Framework
 
+## Login Admin
+
+Gunakan kredensial berikut untuk masuk sebagai admin:
+
+- **Username**: `Admin`
+- **Password**: `12345`
+
+## Login User
+
+Gunakan kredensial berikut untuk masuk sebagai user:
+
+- **Username**: `User`
+- **Password**: `12345`
+
 ## What is CodeIgniter?
 
 CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
