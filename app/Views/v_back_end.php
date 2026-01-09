@@ -96,29 +96,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </p>
             </a>
           </li>
-          <!-- <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+          <li class="nav-item ">
+              <a href="<?= base_url('Admin/Slider') ?>" class="nav-link <?= $menu == 'slider' ? 'active' : '' ?>">
+              <i class="nav-icon fas fa-window-maximize"></i>
               <p>
-                Starter Pages
-                <i class="right fas fa-angle-left"></i>
+                Slider
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Active Page</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inactive Page</p>
-                </a>
-              </li>
-            </ul>
-          </li> -->
           <li class="nav-item">
             <a href="<?= base_url('Admin/User') ?>" class="nav-link <?= $menu == 'user' ? 'active' : '' ?>">
               <i class="nav-icon fas fa-user"></i>
@@ -126,6 +110,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 User
               </p>
             </a>
+          </li>
+          <li class="nav-item <?=  (isset($menu) ? $menu : '')=='setting' ? 'menu-open' : '' ?>">
+            <a href="#" class="nav-link <?=  (isset($menu) ? $menu : '')=='setting' ? 'active' : '' ?>">
+              <i class="nav-icon fas fa-cogs"></i>
+              <p>
+               Pengaturan
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+              <a href="<?= base_url('Admin/Setting/header') ?>" class="nav-link <?=  (isset($submenu) ? $submenu : '')=='header' ? 'active' : '' ?>">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Header</p>
+              </a>
+              </li>
+              <li class="nav-item">
+              <a href="<?= base_url('admin/Setting/kampus') ?>" class="nav-link <?=  (isset($submenu) ? $submenu : '')=='kampus' ? 'active' : '' ?>">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Kampus</p>
+              </a>
+              </li>
+              <li class="nav-item">
+              <a href="<?= base_url('admin/Setting/sambutan') ?>" class="nav-link <?=  (isset($submenu) ? $submenu : '')=='sambutan' ? 'active' : '' ?>">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Sambutan</p>
+              </a>
+              </li> 
+            </ul>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -150,7 +163,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0"><?= $judul ?></h1>
+            <h1 class="m-0"><?= $judul ?> <span><?= $subjudul ?></span></h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -171,7 +184,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <?php
           if ($page) {
-            echo view($page);
+            // Prepare data array with all variables available in current scope
+            $viewData = get_defined_vars();
+            echo view($page, $viewData);
           }
           ?>
 

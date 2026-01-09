@@ -2,11 +2,25 @@
 
 namespace App\Controllers;
 
+use App\Models\ModelSlider;
+
 class Home extends BaseController
 {
-    // public function index(): string
+    protected $ModelSlider;
+    
+    public function __construct()
+    {
+        $this->ModelSlider = new ModelSlider();
+    }
+    
     public function index()
     {
-        return view('welcome_message');
+        $data = [
+            'judul' => 'Home',
+            'subjudul' => 'Home Page',
+            'page' => 'v_home',
+            'sliders' => $this->ModelSlider->allData() ?? [],
+        ];
+        return view('v_front_end', $data);
     }
 }
