@@ -16,6 +16,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="<?= base_url('AdminLTE') ?>/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url('AdminLTE') ?>/dist/css/adminlte.min.css">
+   <!-- summernote -->
+  <link rel="stylesheet" href="<?= base_url('AdminLTE') ?>/plugins/summernote/summernote-bs4.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -86,8 +88,44 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+               <li class="nav-item <?=  (isset($menu) ? $menu : '')=='profile' ? 'menu-open' : '' ?>">
+            <a href="#" class="nav-link <?=  (isset($menu) ? $menu : '')=='profile' ? 'active' : '' ?>">
+              <i class="nav-icon fas fa-university"></i>
+              <p>
+               Profile Kampus
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+              <a href="<?= base_url('Admin/Profile/sejarah') ?>" class="nav-link <?=  (isset($submenu) ? $submenu : '')=='logo' ? 'active' : '' ?>">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Sejarah Kampus</p>
+              </a>
+              </li>
+              <li class="nav-item">
+              <a href="<?= base_url('Admin/Profile/visimisi') ?>" class="nav-link <?=  (isset($submenu) ? $submenu : '')=='header' ? 'active' : '' ?>">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Visi & Misi</p>
+              </a>
+              </li>
+              <li class="nav-item">
+              <a href="<?= base_url('admin/Setting/kampus') ?>" class="nav-link <?=  (isset($submenu) ? $submenu : '')=='kampus' ? 'active' : '' ?>">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Kampus</p>
+              </a>
+              </li>
+              <li class="nav-item">
+              <a href="<?= base_url('admin/Setting/sambutan') ?>" class="nav-link <?=  (isset($submenu) ? $submenu : '')=='sambutan' ? 'active' : '' ?>">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Sambutan</p>
+              </a>
+              </li> 
+            </ul>
+          </li>
           <li class="nav-item">
             <a href="<?= base_url('Admin/Dashboard') ?>" class="nav-link <?= $menu == 'dashboard' ? 'active' : '' ?>">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -226,5 +264,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="<?= base_url('AdminLTE') ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url('AdminLTE') ?>/dist/js/adminlte.min.js"></script>
+<!-- Summernote -->
+<script src="<?= base_url('AdminLTE') ?>/plugins/summernote/summernote-bs4.min.js"></script>
+<script>
+  $(function () {
+    // Summernote
+    $('#summernote').summernote()
+
+    // CodeMirror
+    CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+      mode: "htmlmixed",
+      theme: "monokai"
+    });
+  })
+</script>
 </body>
+
 </html>

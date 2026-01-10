@@ -1,0 +1,43 @@
+<div class="col-md-12">
+    <div class="card card-outline card-primary">
+              <div class="card-header">
+                <h3 class="card-title"><?= $judul ?></h3>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+              <?php 
+              session();
+              $validation = \Config\Services::validation();
+              ?>
+              <?php echo form_open_multipart('admin/setting/update_header') ?>
+
+               
+                <div class="row">
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <div class="form-group">
+                        <label>Header</label>
+                        <textarea name="header" class="form-control" rows="5"><?= $setting['header'] ?? '' ?></textarea>
+                        <small class="text-muted">Kosongkan jika tidak ingin mengganti header.</small>
+                        
+                        <label class="mt-3">Logo Header</label>
+                        <div>
+                        <img type="image" src="<?= base_url('uploads/logo/'. ($setting['logo_header'] ?? '')) ?>" width="250px">
+                        </div>
+                        <label> Ganti Logo Header</label>
+                        <input type="file" name="logo_header" class="form-control" accept="image/*">
+                        <small class="text-muted">Kosongkan jika tidak ingin mengganti logo header.</small>
+                    </div>
+                    
+                    </div>
+                  </div>    
+                </div>         
+            <button class="btn btn-primary btn-flat" type="submit">Simpan</button>
+            <a href="<?= base_url('admin/setting/header') ?>"class="btn btn-success btn-flat">Kembali</a>
+
+              <?php echo form_close() ?>
+
+        </div>
+    </div>
+</div>

@@ -25,6 +25,7 @@ class ModelSetting extends Model
         'nama_pimpinan',
         'dipimpin_oleh',
         'sambutan',
+        'sejarah'
         
     ];
 

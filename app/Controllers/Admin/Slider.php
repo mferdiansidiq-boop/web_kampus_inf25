@@ -18,7 +18,7 @@ class Slider extends BaseController
     // READ - Tampilkan daftar slider
     public function index()
     {
-        $sliderData = $this->ModelSlider->allData();
+        $sliderData = $this->ModelSlider->findAll();
         
         $data = [
             'judul' => 'Data Slider',
