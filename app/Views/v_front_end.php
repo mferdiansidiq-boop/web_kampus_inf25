@@ -419,8 +419,9 @@
                             PROFILE
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="profileDropdown">
-                            <li><a class="dropdown-item" href="#">Tentang Kami</a></li>
-                            <li><a class="dropdown-item" href="#">Visi & Misi</a></li>
+                            <li><a class="dropdown-item" href="<?= base_url('Home/organisasi') ?>">Struktur Organisasi</a></li>
+                            <li><a class="dropdown-item" href="<?= base_url('Home/sejarah') ?>">Sejarah</a></li>
+                            <li><a class="dropdown-item" href="<?= base_url('Home/visimisi') ?>">Visi & Misi</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">

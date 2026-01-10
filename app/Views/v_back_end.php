@@ -113,7 +113,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
               </li>
               <li class="nav-item">
-              <a href="<?= base_url('admin/Setting/organisasi') ?>" class="nav-link <?=  (isset($submenu) ? $submenu : '')=='organisasi' ? 'active' : '' ?>">
+              <a href="<?= base_url('admin/Profile/organisasi') ?>" class="nav-link <?=  (isset($submenu) ? $submenu : '')=='organisasi' ? 'active' : '' ?>">
               <i class="far fa-circle nav-icon"></i>
               <p>Struktur Organisasi</p>
               </a>

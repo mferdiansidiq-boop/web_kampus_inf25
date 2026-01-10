@@ -28,6 +28,7 @@ class ModelSetting extends Model
         'sejarah',
         'visi',
         'misi',
+        'organisasi',
         
     ];
 

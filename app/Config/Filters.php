@@ -78,6 +78,7 @@ class Filters extends BaseFilters
                 'except' => [
                     '/',
                     'Auth', 'Auth/*',
+                    'Home', 'Home/*',
                 ]
             ],
         ],

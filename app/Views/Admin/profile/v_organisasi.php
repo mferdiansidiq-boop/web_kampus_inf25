@@ -10,20 +10,20 @@
               session();
               $validation = \Config\Services::validation();
               ?>
-              <?php echo form_open_multipart('admin/setting/update_logo') ?>
+              <?php echo form_open_multipart('admin/profile/update_organisasi') ?>
 
                
                 <div class="row">
                   <div class="col-sm-3">
                     <div class="form-group">
                       <div class="form-group">
-                        <label class="mt-3">Logo Kampus</label>
+                        <label class="mt-3">Organisasi Kampus</label>
                         <div>
-                        <img type="image" src="<?= base_url('uploads/logo/'. ($setting['logo_kampus'] ?? '')) ?>" width="250px">
+                        <img type="image" src="<?= base_url('uploads/kampus/'. ($setting['organisasi'] ?? '')) ?>" width="600px">
                         </div>
-                        <label> Ganti Logo Kampus</label>
-                        <input type="file" name="logo_kampus" class="form-control" accept="image/*">
-                        <small class="text-muted">Kosongkan jika tidak ingin mengganti logo Kampus.</small>
+                        <label> Ganti Organisasi Kampus</label>
+                        <input type="file" name="organisasi" class="form-control" accept="image/*">
+                        <small class="text-muted">Kosongkan jika tidak ingin mengganti organisasi Kampus.</small>
                     </div>
                     
                     </div>
