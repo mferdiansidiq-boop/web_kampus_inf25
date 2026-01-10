@@ -121,6 +121,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
+              <a href="<?= base_url('Admin/Setting/logo') ?>" class="nav-link <?=  (isset($submenu) ? $submenu : '')=='logo' ? 'active' : '' ?>">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Logo Kampus</p>
+              </a>
+              </li>
+              <li class="nav-item">
               <a href="<?= base_url('Admin/Setting/header') ?>" class="nav-link <?=  (isset($submenu) ? $submenu : '')=='header' ? 'active' : '' ?>">
               <i class="far fa-circle nav-icon"></i>
               <p>Header</p>

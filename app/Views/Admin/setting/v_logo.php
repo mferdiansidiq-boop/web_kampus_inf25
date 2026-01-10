@@ -10,31 +10,27 @@
               session();
               $validation = \Config\Services::validation();
               ?>
-              <?php echo form_open_multipart('admin/setting/update_header') ?>
+              <?php echo form_open_multipart('admin/setting/update_logo') ?>
 
                
                 <div class="row">
                   <div class="col-sm-3">
                     <div class="form-group">
                       <div class="form-group">
-                        <label>Header</label>
-                        <textarea name="header" class="form-control" rows="5"><?= $setting['header'] ?? '' ?></textarea>
-                        <small class="text-muted">Kosongkan jika tidak ingin mengganti header.</small>
-                        
-                        <label class="mt-3">Logo Header</label>
+                        <label class="mt-3">Logo Kampus</label>
                         <div>
-                        <img type="image" src="<?= base_url('uploads/logo/'. ($setting['logo_header'] ?? '')) ?>" width="250px">
+                        <img type="image" src="<?= base_url('uploads/logo/'. ($setting['logo_kampus'] ?? '')) ?>" width="250px">
                         </div>
-                        <label> Ganti Logo Header</label>
-                        <input type="file" name="logo_header" class="form-control" accept="image/*">
-                        <small class="text-muted">Kosongkan jika tidak ingin mengganti logo header.</small>
+                        <label> Ganti Logo Kampus</label>
+                        <input type="file" name="logo_kampus" class="form-control" accept="image/*">
+                        <small class="text-muted">Kosongkan jika tidak ingin mengganti logo Kampus.</small>
                     </div>
                     
                     </div>
                   </div>    
                 </div>         
             <button class="btn btn-primary btn-flat" type="submit">Simpan</button>
-            <a href="<?= base_url('admin/setting/header') ?>"class="btn btn-success btn-flat">Kembali</a>
+            <a href="<?= base_url('admin/setting/logo') ?>"class="btn btn-success btn-flat">Kembali</a>
 
               <?php echo form_close() ?>
 
