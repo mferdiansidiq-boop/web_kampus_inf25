@@ -223,6 +223,65 @@ class Profile extends BaseController
         return redirect()->to(base_url('admin/setting/sambutan'))->with('error', 'Tidak ada data yang diubah');
     }
 
+    public function visimisi()
+    {
+        $setting = $this->ModelSetting->DataKampus() ?? [];
+        
+        $data = [
+            'judul' => 'Profile',
+            'subjudul' => 'Visi & Misi Kampus',
+            'menu' => 'profile',
+            'submenu' => 'visimisi',
+            'page' => 'admin/profile/v_visimisi',
+            'setting' => $setting
+        ];
+        
+        return view('v_back_end', $data);
+    }
+
+    public function update_visimisi()
+    {
+        $visi = $this->request->getPost('visi');
+        $misi = $this->request->getPost('misi');
+
+        $data = [];
+
+        // Update visi jika ada (trim whitespace dan remove HTML tags untuk check kosong)
+        if (!empty(trim(strip_tags($visi)))) {
+            $data['visi'] = $visi;
+        }
+
+        // Update misi jika ada (trim whitespace dan remove HTML tags untuk check kosong)
+        if (!empty(trim(strip_tags($misi)))) {
+            $data['misi'] = $misi;
+        }
+        
+             
+        // Jika ada data yang diupdate
+        if (!empty($data)) {
+            $this->ModelSetting->update(1, $data);
+            return redirect()->to(base_url('admin/profile/visimisi'))->with('sukses', 'Visi & Misi  berhasil diupdate');
+        } else {
+            return redirect()->to(base_url('admin/profile/visimisi'))->with('error', 'Tidak ada data yang diubah');
+        }
+    }
+
+    public function organisasi()
+    {
+        $setting = $this->ModelSetting->DataKampus() ?? [];
+        
+        $data = [
+            'judul' => 'Profile',
+            'subjudul' => 'Struktur Organisasi',
+            'menu' => 'profile',
+            'submenu' => 'organisasi',
+            'page' => 'admin/profile/v_visimisi',
+            'setting' => $setting
+        ];
+        
+        return view('v_back_end', $data);
+    }
+
     
 }
 

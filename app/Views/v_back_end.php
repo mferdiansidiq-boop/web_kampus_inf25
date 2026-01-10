@@ -113,9 +113,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
               </li>
               <li class="nav-item">
-              <a href="<?= base_url('admin/Setting/kampus') ?>" class="nav-link <?=  (isset($submenu) ? $submenu : '')=='kampus' ? 'active' : '' ?>">
+              <a href="<?= base_url('admin/Setting/organisasi') ?>" class="nav-link <?=  (isset($submenu) ? $submenu : '')=='organisasi' ? 'active' : '' ?>">
               <i class="far fa-circle nav-icon"></i>
-              <p>Kampus</p>
+              <p>Struktur Organisasi</p>
               </a>
               </li>
               <li class="nav-item">
@@ -134,13 +134,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item">
               <a href="<?= base_url('Admin/Slider') ?>" class="nav-link <?= $menu == 'slider' ? 'active' : '' ?>">
               <i class="nav-icon fas fa-window-maximize"></i>
               <p>
                 Slider
               </p>
             </a>
+          </li>
+          <li class="nav-item">
+              <a href="<?= base_url('Admin/App') ?>" class="nav-link <?= $menu == 'app' ? 'active' : '' ?>">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                App
+              </p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="<?= base_url('Admin/User') ?>" class="nav-link <?= $menu == 'user' ? 'active' : '' ?>">
               <i class="nav-icon fas fa-user"></i>
@@ -268,8 +277,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="<?= base_url('AdminLTE') ?>/plugins/summernote/summernote-bs4.min.js"></script>
 <script>
   $(function () {
-    // Summernote
-    $('#summernote').summernote()
+    // Summernote - initialize all editors with class 'summernote'
+    $('.summernote').summernote()
 
     // CodeMirror
     CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {

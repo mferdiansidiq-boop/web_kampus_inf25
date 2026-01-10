@@ -6,6 +6,10 @@ use CodeIgniter\Model;
 
 class ModelSlider extends Model
 {
+    protected $table = 'tbl_slider';
+    protected $primaryKey = 'id_slider';
+    protected $allowedFields = ['judul_slider', 'url_terkait', 'gambar_slider'];
+
     public function allData()
     {
         return $this->db->table('tbl_slider')->get()->getResultArray();

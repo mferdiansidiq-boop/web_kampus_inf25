@@ -30,11 +30,16 @@ class User extends BaseController
 
     public function insert()
     {
+        // Validasi input
+        if (!$this->validate('user_insert')) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
         $data = [
-            'nama_user' => $this->request->getpost('nama_user'),
-            'username' => $this->request->getpost('username'),
-            'password' => sha1($this->request->getpost('password')),
-            'level' => $this->request->getpost('level'),
+            'nama_user' => $this->request->getPost('nama_user'),
+            'username'  => $this->request->getPost('username'),
+            'password'  => sha1($this->request->getPost('password')),
+            'level'     => $this->request->getPost('level'),
         ];
 
         $this->ModelUser->insertData($data);
@@ -45,11 +50,16 @@ class User extends BaseController
 
     public function update($id_user)
     {
+        // Validasi input
+        if (!$this->validate('user_update')) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
         $data = [
-            'id_user' => $id_user,
-            'nama_user' => $this->request->getpost('nama_user'),
-            'username' => $this->request->getpost('username'),
-            'level' => $this->request->getpost('level'),
+            'id_user'   => $id_user,
+            'nama_user' => $this->request->getPost('nama_user'),
+            'username'  => $this->request->getPost('username'),
+            'level'     => $this->request->getPost('level'),
         ];
 
         $this->ModelUser->updateData($data);
@@ -60,9 +70,14 @@ class User extends BaseController
 
     public function updatePassword($id_user)
     {
+        // Validasi input
+        if (!$this->validate('user_password')) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
         $data = [
-            'id_user' => $id_user,
-            'password' => sha1($this->request->getpost('password')),
+            'id_user'  => $id_user,
+            'password' => sha1($this->request->getPost('password')),
         ];
 
         $this->ModelUser->updateData($data);
