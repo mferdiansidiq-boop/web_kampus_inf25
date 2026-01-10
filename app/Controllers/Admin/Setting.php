@@ -201,6 +201,36 @@ class Setting extends BaseController
         return view('v_back_end', $data);
     }
 
+    public function update_sambutan()
+    {
+        $nama_pimpinan = $this->request->getPost('nama_pimpinan');
+        $sambutan = $this->request->getPost('sambutan');
+        $file = $this->request->getFile('foto_pimpinan');
+
+        $data = [];
+
+        if (!empty($nama_pimpinan)) {
+            $data['nama_pimpinan'] = $nama_pimpinan;
+        }
+
+        if (!empty($sambutan)) {
+            $data['sambutan'] = $sambutan;
+        }
+
+        if ($file && $file->getError() !== 4) {
+            $namaFile = $file->getRandomName();
+            $file->move('uploads/foto/', $namaFile);
+            $data['foto_pimpinan'] = $namaFile;
+        }
+
+        if (!empty($data)) {
+            $this->ModelSetting->update(1, $data);
+            return redirect()->to(base_url('admin/setting/sambutan'))->with('sukses', 'Sambutan berhasil diupdate');
+        }
+
+        return redirect()->to(base_url('admin/setting/sambutan'))->with('error', 'Tidak ada data yang diubah');
+    }
+
     
 }
 

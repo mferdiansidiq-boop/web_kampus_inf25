@@ -21,18 +21,19 @@
                       </div>
                     </div>
                  </div>
+                </div>
                
                 <div class="row">
                   <div class="col-sm-3">
                     <div class="form-group">
                       <div class="form-group">
-                        <label class="mt-3">Logo Kampus</label>
+                        <label class="mt-3">Foto Pimpinan</label>
                         <div>
-                        <img type="image" src="<?= base_url('uploads/logo/'. ($setting['logo_kampus'] ?? '')) ?>" width="250px">
+                        <img type="image" src="<?= base_url('uploads/foto/'. ($setting['foto_pimpinan'] ?? '')) ?>" width="250px">
                         </div>
-                        <label> Ganti Logo Kampus</label>
-                        <input type="file" name="logo_kampus" class="form-control" accept="image/*">
-                        <small class="text-muted">Kosongkan jika tidak ingin mengganti logo Kampus.</small>
+                        <label> Ganti Foto Pimpinan</label>
+                        <input type="file" name="foto_pimpinan" class="form-control" accept="image/*">
+                        <small class="text-muted">Kosongkan jika tidak ingin mengganti foto pimpinan.</small>
                     </div>
                     </div>
                   </div>    
@@ -40,7 +41,7 @@
                 <div class="row">
                   <div class="col-sm-12">
                   <div class="form-group">
-                    <label>Sambutan Pimpinan</label>
+                    <label>Ganti Sambutan Pimpinan</label>
                     <textarea name="sambutan" class="form-control" rows="10"><?= $setting['sambutan'] ?? '' ?></textarea>
                     </div>
                     </div>
