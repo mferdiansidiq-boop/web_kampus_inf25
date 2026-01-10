@@ -477,11 +477,11 @@
             <div class="row">
                  <!-- content -->
 
-                <?php
-                 if ($page) {
-                  echo view($page);
-                }
-                ?>
+                                <?php
+                                 if ($page) {
+                                    echo view($page, get_defined_vars());
+                                }
+                                ?>
 
                     <!-- end-content -->
             </div>

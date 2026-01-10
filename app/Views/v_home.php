@@ -41,10 +41,30 @@
                     <span class="visually-hidden">Next</span>
                   </button>
                 </div>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+</div>
+
+
+<!-- Welcome / Intro Section (below carousel) -->
+<section class="welcome-section py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-4 text-center">
+        <div class="card" style="border:0;">
+          <img src="<?= base_url('uploads/foto/'.$setting['foto_pimpinan']) ?>" class="img-fluid" alt="Foto Pimpinan" style="border-radius:4px;">
+          <div class="mt-3" style="background:#fff; padding:6px 10px; border-top:3px solid #0f7a3a;">
+            <strong><?= $setting['nama_pimpinan'] ?></strong>
+            <div class="text-muted">Rektor</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <h2>Welcome To <span style="color:#0f7a3a"><?= $setting['nama_kampus'] ?></span></h2>
+        <p> <?= $setting['sambutan'] ?>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <script>
 // Initialize Bootstrap Carousel
