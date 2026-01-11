@@ -143,6 +143,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
           <li class="nav-item">
+              <a href="<?= base_url('Admin/Prodi') ?>" class="nav-link <?= $menu == 'prodi' ? 'active' : '' ?>">
+              <i class="nav-icon fas fa-graduation-cap"></i>
+              <p>
+                Prodi
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+              <a href="<?= base_url('Admin/Dosen') ?>" class="nav-link <?= $menu == 'dosen' ? 'active' : '' ?>">
+              <i class="nav-icon fas fa-graduation-cap"></i>
+              <p>
+                Dosen
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
               <a href="<?= base_url('Admin/App') ?>" class="nav-link <?= $menu == 'app' ? 'active' : '' ?>">
               <i class="nav-icon fas fa-th"></i>
               <p>

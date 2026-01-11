@@ -6,6 +6,7 @@
     $db = \Config\Database::connect();
     $setting_front = $db->table('tbl_kampus')->where('id', 1)->get()->getRowArray();
     $app_front = $db->table('tbl_app')->where('id_app', 1)->get()->getRowArray();
+    $prodi_list = $db->table('tbl_prodi')->get()->getResultArray();
 
 
      ?>
@@ -412,7 +413,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#home">HOME</a>
+                        <a class="nav-link" href="<?= base_url('home') ?>">HOME</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown">
@@ -438,8 +439,10 @@
                             PROGRAM STUDI
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="programDropdown">
-                            <li><a class="dropdown-item" href="#">Informatika</a></li>
-                            <li><a class="dropdown-item" href="#">Sistem Informasi</a></li>
+                            <?php foreach ($prodi_list as $p) { ?>
+                            <li><a class="dropdown-item" href="<?= base_url('Home/prodi/' . $p['id_prodi']) ?>" target="_blank"><?= $p['nama_prodi'] ?></a></li>
+                           <?php }
+                            ?>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">

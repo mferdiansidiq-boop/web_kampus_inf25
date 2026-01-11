@@ -4,17 +4,20 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\ModelSlider;
 use App\Models\ModelSetting;
+use App\Models\ModelProdi;
 
 class Home extends BaseController
 {
     protected $ModelSlider;
     protected $ModelSetting;
+    protected $ModelProdi;
     
     public function __construct()
     {
         helper('form');
         $this->ModelSlider = new ModelSlider();
         $this->ModelSetting = new ModelSetting();
+        $this->ModelProdi = new ModelProdi();
     }
     
     public function index()
@@ -61,6 +64,18 @@ class Home extends BaseController
             'subjudul' => 'Visi Misi',
             'page' => 'v_visimisi',
             'setting' => $this->ModelSetting->DataKampus() ?? [],
+
+        ];
+        return view('v_front_end', $data);
+    }
+
+    public function prodi($id_prodi)
+    {
+        $data = [
+            'judul' => 'Program Studi',
+            'subjudul' => 'Program Studi',
+            'page' => 'v_prodi',
+            'prodi' => $this->ModelProdi->getDataById($id_prodi) ?? [],
 
         ];
         return view('v_front_end', $data);
