@@ -5,12 +5,14 @@ use App\Controllers\BaseController;
 use App\Models\ModelSlider;
 use App\Models\ModelSetting;
 use App\Models\ModelProdi;
+use App\Models\ModelDosen;
 
 class Home extends BaseController
 {
     protected $ModelSlider;
     protected $ModelSetting;
     protected $ModelProdi;
+    protected $ModelDosen;
     
     public function __construct()
     {
@@ -18,6 +20,7 @@ class Home extends BaseController
         $this->ModelSlider = new ModelSlider();
         $this->ModelSetting = new ModelSetting();
         $this->ModelProdi = new ModelProdi();
+        $this->ModelDosen = new ModelDosen();
     }
     
     public function index()
@@ -76,7 +79,7 @@ class Home extends BaseController
             'subjudul' => 'Program Studi',
             'page' => 'v_prodi',
             'prodi' => $this->ModelProdi->getDataById($id_prodi) ?? [],
-
+            'dosen' => $this->ModelDosen->where('id_prodi', $id_prodi)->findAll() ?? [],
         ];
         return view('v_front_end', $data);
     }

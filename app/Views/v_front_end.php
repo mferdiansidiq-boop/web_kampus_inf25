@@ -18,12 +18,19 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS - Animate On Scroll -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -62,6 +69,15 @@
             background-color: #fff;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            padding: 10px 0;
         }
 
         .navbar-brand {
@@ -82,7 +98,7 @@
             font-weight: 500;
             margin-right: 20px;
             position: relative;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
 
         .nav-link:hover {
@@ -97,7 +113,7 @@
             width: 0;
             height: 2px;
             background-color: #28a745;
-            transition: width 0.3s;
+            transition: width 0.3s ease;
         }
 
         .nav-link:hover::after {
@@ -127,6 +143,51 @@
             color: #333;
             font-weight: 700;
             margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleUp {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         /* Newsletter Section */
@@ -135,12 +196,18 @@
             color: white;
             padding: 60px 0;
             margin: 40px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .newsletter-section:hover {
+            transform: translateY(-5px);
         }
 
         .newsletter-section h2 {
             font-size: 2rem;
             font-weight: bold;
             margin-bottom: 15px;
+            animation: fadeInUp 0.8s ease-out;
         }
 
         .newsletter-section p {
@@ -171,11 +238,12 @@
             border-radius: 4px;
             font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         .newsletter-form button:hover {
             background-color: #333;
+            transform: scale(1.05);
         }
 
         /* Footer */
@@ -204,10 +272,29 @@
         footer ul li a {
             color: #ccc;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.3s ease, transform 0.3s ease;
             display: flex;
             align-items: center;
             gap: 8px;
+        }
+
+        footer ul li a:hover {
+            color: #28a745;
+            transform: translateX(5px);
+        }
+
+        /* Card Hover Effects */
+        .card, .card-dosen {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover, .card-dosen:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .card-img-top:hover {
+            transform: scale(1.05);
         }
 
         footer ul li a:hover {
@@ -619,8 +706,63 @@
     <!-- Bootstrap JS (required for dropdowns and other components) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Newsletter Form Script -->
+    <!-- AOS - Animate On Scroll JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <!-- Scroll Animation Script -->
     <script>
+        // Initialize AOS for scroll animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Navbar scroll effect
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll reveal for cards and elements
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.card, .section-full, .welcome-section, .card-dosen').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
         // Handle Newsletter Form Submission
         function handleNewsletterSubmit(formId, msgId) {
             var form = document.getElementById(formId);

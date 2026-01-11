@@ -4,23 +4,15 @@
     <div class="container" style="position: relative; z-index: 1;">
         <div class="dlab-bnr-inr-entry text-center">
             <h1 class="text-white">Struktur Organisasi</h1>
-            
-            <!-- Breadcrumb row -->
             <div class="breadcrumb-row mt-3">
                 <ul class="list-inline text-white">
                     <li><a href="<?= base_url() ?>">Profile</a> > Struktur Organisasi</li>
                 </ul>
             </div>
-            <!-- Breadcrumb row END -->
         </div>
     </div>
 </div>
 <!-- inner page banner END -->
- <p>
-
- 
- </p>
-
 
 <!-- Content -->
 <div class="section-full bg-white content-inner">

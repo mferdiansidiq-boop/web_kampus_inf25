@@ -15,7 +15,7 @@ class ModelDosen extends Model
     protected $allowedFields    = [
         'nama_dosen',
         'nip',
-        'foto_dosen',
+        'foto',
         'pendidikan_terakhir',
         'jenis_kelamin',
         'email',
@@ -40,10 +40,10 @@ class ModelDosen extends Model
     // Validation
     protected $validationRules      = [
         'nama_dosen' => 'required|max_length[100]',
-        'nip' => 'required|numeric|is_unique',
+        'nip' => 'required|numeric|is_unique[tbl_dosen.nip]',
         'pendidikan_terakhir' => 'required|max_length[100]',
-        'jenis_kelamin' => 'required|in_list[L,P]',
-        'email' => 'required|valid_email|is_unique',
+        'jenis_kelamin' => 'required|in_list[Laki-laki,Perempuan]',
+        'email' => 'required|valid_email|is_unique[tbl_dosen.email]',
         'no_telp' => 'required|numeric',
         'alamat' => 'required',
         'id_prodi' => 'required|numeric',
@@ -105,6 +105,8 @@ class ModelDosen extends Model
                         ->get()
                         ->getResultArray();
     }
+
+    
 
 
 }

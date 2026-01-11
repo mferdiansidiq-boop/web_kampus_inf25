@@ -127,7 +127,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </ul>
           </li>
           <li class="nav-item">
-            <a href="<?= base_url('Admin/Dashboard') ?>" class="nav-link <?= $menu == 'dashboard' ? 'active' : '' ?>">
+            <a href="<?= base_url('Admin/Dashboard') ?>" class="nav-link <?= (isset($menu) ? $menu : '') == 'dashboard' ? 'active' : '' ?>">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -135,7 +135,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
           <li class="nav-item">
-              <a href="<?= base_url('Admin/Slider') ?>" class="nav-link <?= $menu == 'slider' ? 'active' : '' ?>">
+              <a href="<?= base_url('Admin/Slider') ?>" class="nav-link <?= (isset($menu) ? $menu : '') == 'slider' ? 'active' : '' ?>">
               <i class="nav-icon fas fa-window-maximize"></i>
               <p>
                 Slider
@@ -143,7 +143,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
           <li class="nav-item">
-              <a href="<?= base_url('Admin/Prodi') ?>" class="nav-link <?= $menu == 'prodi' ? 'active' : '' ?>">
+              <a href="<?= base_url('Admin/Prodi') ?>" class="nav-link <?= (isset($menu) ? $menu : '') == 'prodi' ? 'active' : '' ?>">
               <i class="nav-icon fas fa-graduation-cap"></i>
               <p>
                 Prodi
@@ -151,15 +151,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
           <li class="nav-item">
-              <a href="<?= base_url('Admin/Dosen') ?>" class="nav-link <?= $menu == 'dosen' ? 'active' : '' ?>">
-              <i class="nav-icon fas fa-graduation-cap"></i>
+              <a href="<?= base_url('Admin/Dosen') ?>" class="nav-link <?= (isset($menu) ? $menu : '') == 'dosen' ? 'active' : '' ?>">
+              <i class="nav-icon fas fa-chalkboard-teacher"></i>
               <p>
                 Dosen
               </p>
             </a>
           </li>
           <li class="nav-item">
-              <a href="<?= base_url('Admin/App') ?>" class="nav-link <?= $menu == 'app' ? 'active' : '' ?>">
+              <a href="<?= base_url('Admin/App') ?>" class="nav-link <?= (isset($menu) ? $menu : '') == 'app' ? 'active' : '' ?>">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 App
@@ -167,7 +167,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?= base_url('Admin/User') ?>" class="nav-link <?= $menu == 'user' ? 'active' : '' ?>">
+            <a href="<?= base_url('Admin/User') ?>" class="nav-link <?= (isset($menu) ? $menu : '') == 'user' ? 'active' : '' ?>">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 User
