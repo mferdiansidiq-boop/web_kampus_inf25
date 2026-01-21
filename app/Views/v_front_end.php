@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
 
     <?php
@@ -9,18 +10,20 @@
     $prodi_list = $db->table('tbl_prodi')->get()->getResultArray();
 
 
-     ?>
+    ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduZone - Platform Edukasi</title>
-    
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- AOS - Animate On Scroll -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    
+
     <style>
         * {
             margin: 0;
@@ -151,6 +154,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -162,6 +166,7 @@
                 opacity: 0;
                 transform: translateX(-50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -173,6 +178,7 @@
                 opacity: 0;
                 transform: translateX(50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -184,11 +190,84 @@
                 opacity: 0;
                 transform: scale(0.95);
             }
+
             to {
                 opacity: 1;
                 transform: scale(1);
             }
         }
+
+        /* Feedback Section */
+        .feedback-section {
+            background: #ffffff;
+            padding: 60px 0;
+            margin: 40px auto;
+            /* tengah secara horizontal */
+            max-width: 900px;
+            /* lebar maksimal */
+            border-radius: 10px;
+
+            display: flex;
+            justify-content: center;
+            /* konten horizontal center */
+            align-items: center;
+            /* konten vertical center */
+
+            transition: transform 0.3s ease;
+        }
+
+        .feedback-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .feedback-section h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .feedback-section p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* Form */
+        .feedback-form {
+            width: 100%;
+            max-width: 500px;
+            /* form benar-benar di tengah */
+        }
+
+        .feedback-form input,
+        .feedback-form textarea,
+        .feedback-form select {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        /* Button */
+        .feedback-form button {
+            background-color: #1f1f1f;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .feedback-form button:hover {
+            background-color: #333;
+            transform: scale(1.05);
+        }
+
 
         /* Newsletter Section */
         .newsletter-section {
@@ -284,11 +363,13 @@
         }
 
         /* Card Hover Effects */
-        .card, .card-dosen {
+        .card,
+        .card-dosen {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .card:hover, .card-dosen:hover {
+        .card:hover,
+        .card-dosen:hover {
             transform: translateY(-8px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
         }
@@ -459,6 +540,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Top Header -->
     <div class="top-header">
@@ -527,8 +609,8 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="programDropdown">
                             <?php foreach ($prodi_list as $p) { ?>
-                            <li><a class="dropdown-item" href="<?= base_url('Home/prodi/' . $p['id_prodi']) ?>" target="_blank"><?= $p['nama_prodi'] ?></a></li>
-                           <?php }
+                                <li><a class="dropdown-item" href="<?= base_url('Home/prodi/' . $p['id_prodi']) ?>" target="_blank"><?= $p['nama_prodi'] ?></a></li>
+                            <?php }
                             ?>
                         </ul>
                     </li>
@@ -580,20 +662,19 @@
     <div class="main-content">
         <div class="container-fluid">
             <div class="row">
-                 <!-- content -->
+                <!-- content -->
 
-                                <?php
-                                 if ($page) {
-                                    echo view($page, get_defined_vars());
-                                }
-                                ?>
+                <?php
+                if ($page) {
+                    echo view($page, get_defined_vars());
+                }
+                ?>
 
-                    <!-- end-content -->
+                <!-- end-content -->
             </div>
         </div>
     </div>
 
-    <!-- Newsletter Section -->
     <div class="newsletter-section">
         <div class="container">
             <div class="row">
@@ -610,6 +691,112 @@
                     </form>
                     <div id="newsletterMsg1" style="margin-top: 10px; display: none;"></div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feedback Section -->
+    <div class="feedback-section py-5">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+
+                <!-- Judul -->
+                <div class="col-lg-8 text-center mb-4">
+                    <h2>Berikan Kami Penilaian</h2>
+                    <p>
+                        Penilaian anda dapat memberikan semangat untuk kami dalam
+                        meningkatkan kualitas pelayanan.
+                    </p>
+                </div>
+
+                <!-- Form -->
+                <div class="col-lg-6">
+                    <div class="feedback-form p-4 shadow rounded">
+                        <form action="<?= base_url('feedback/store') ?>" method="post" enctype="multipart/form-data">
+
+                            <div class="mb-3">
+                                <label class="form-label">Nama</label>
+                                <input type="text" name="nama" class="form-control" placeholder="Masukkan Nama" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Jenis Kelamin</label>
+                                <select name="jenis_kelamin" class="form-select" required>
+                                    <option value="">-- Pilih --</option>
+                                    <option value="Laki-laki">Laki-laki</option>
+                                    <option value="Perempuan">Perempuan</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Keluhan</label>
+                                <select name="keluhan" class="form-select" required>
+                                    <option value="">-- Pilih --</option>
+                                    <option value="Antrian Lama">Antrian Terlalu Lama</option>
+                                    <option value="Aplikasi Lelet">Aplikasi Lelet</option>
+                                    <option value="Pelayanan Kurang">Pelayanan Kurang</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Alamat</label>
+                                <textarea name="alamat" class="form-control" rows="2" required></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label>Desa</label>
+                                <select id="desa" name="desa" class="form-select"></select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label>Kecamatan</label>
+                                <select id="kecamatan" name="kecamatan" class="form-select"></select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label>Kabupaten / Kota</label>
+                                <select id="kabupaten" name="kabupaten" class="form-select"></select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label>Provinsi</label>
+                                <select id="provinsi" name="provinsi" class="form-select"></select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Upload Foto</label>
+                                <input
+                                    type="file"
+                                    name="foto"
+                                    class="form-control"
+                                    accept="image/*"
+                                    onchange="previewImage(event)"
+                                    required>
+                            </div>
+
+                            <div class="mb-3 text-center">
+                                <img
+                                    id="imagePreview"
+                                    src=""
+                                    alt="Preview Gambar"
+                                    class="img-fluid rounded shadow d-none"
+                                    style="max-height: 200px;">
+                            </div>
+
+
+                            <div class="mb-3">
+                                <label class="form-label">Keterangan</label>
+                                <input type="text" name="keterangan" class="form-control" required>
+                            </div>
+
+                            <button type="submit" class="btn btn-success w-100">
+                                Submit Feedback
+                            </button>
+
+                        </form>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -645,7 +832,7 @@
                 <!-- Contact Us Column -->
                 <div class="col-lg-3 col-md-6 mb-4" id="contact">
                     <h4>CONTACT US</h4>
-                    
+
                     <div class="contact-info">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
@@ -675,7 +862,7 @@
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h4>SUBSCRIBE TO OUR NEWSLETTER</h4>
                     <p style="font-size: 0.9rem; margin-bottom: 15px;">Get latest news and updates about our campus, programs, and events directly to your email.</p>
-                    
+
                     <div class="newsletter-footer">
                         <form id="newsletterForm2" method="POST" action="<?= base_url('Home/subscribe') ?>">
                             <?= csrf_field() ?>
@@ -710,7 +897,102 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
     <!-- Scroll Animation Script -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     <script>
+        $(document).ready(function() {
+            const provinsi = document.getElementById("provinsi");
+            const kabupaten = document.getElementById("kabupaten");
+            const kecamatan = document.getElementById("kecamatan");
+            const desa = document.getElementById("desa");
+
+            // Aktifkan Select
+
+            $('#provinsi, #kabupaten, #kecamatan, #desa').select2({});
+
+            // LOAD PROVINSI
+            $.getJSON(
+                'https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json',
+                function(data) {
+                    $('#provinsi').append('<option value="">Pilih Provinsi</option>');
+                    $.each(data, function(i, item) {
+                        $('#provinsi').append(
+                            `<option value="${item.id}">${item.name}</option>`
+                        );
+                    });
+                }
+            );
+
+            // LOAD KABUPATEN
+            $('#provinsi').on('change', function() {
+                $('#kabupaten').empty().append('<option>Loading...</option>');
+                $('#kecamatan').empty();
+                $('#desa').empty();
+
+                $.getJSON(
+                    `https://www.emsifa.com/api-wilayah-indonesia/api/regencies/${this.value}.json`,
+                    function(data) {
+                        $('#kabupaten').empty().append('<option value="">Pilih Kabupaten</option>');
+                        $.each(data, function(i, item) {
+                            $('#kabupaten').append(
+                                `<option value="${item.id}">${item.name}</option>`
+                            );
+                        });
+                    }
+                );
+            });
+
+            // LOAD KECAMATAN
+            $('#kabupaten').on('change', function() {
+                $('#kecamatan').empty().append('<option>Loading...</option>');
+                $('#desa').empty();
+
+                $.getJSON(
+                    `https://www.emsifa.com/api-wilayah-indonesia/api/districts/${this.value}.json`,
+                    function(data) {
+                        $('#kecamatan').empty().append('<option value="">Pilih Kecamatan</option>');
+                        $.each(data, function(i, item) {
+                            $('#kecamatan').append(
+                                `<option value="${item.id}">${item.name}</option>`
+                            );
+                        });
+                    }
+                );
+            });
+
+            // LOAD DESA
+            $('#kecamatan').on('change', function() {
+                $('#desa').empty().append('<option>Loading...</option>');
+
+                $.getJSON(
+                    `https://www.emsifa.com/api-wilayah-indonesia/api/villages/${this.value}.json`,
+                    function(data) {
+                        $('#desa').empty().append('<option value="">Pilih Desa</option>');
+                        $.each(data, function(i, item) {
+                            $('#desa').append(
+                                `<option value="${item.id}">${item.name}</option>`
+                            );
+                        });
+                    }
+                );
+            });
+
+        });
+
+        function previewImage(event) {
+            const img = document.getElementById('imagePreview');
+            const file = event.target.files[0];
+
+            if (file) {
+                img.src = URL.createObjectURL(file);
+                img.classList.remove('d-none');
+            } else {
+                img.src = "";
+                img.classList.add('d-none');
+            }
+        }
+
         // Initialize AOS for scroll animations
         AOS.init({
             duration: 800,
@@ -731,7 +1013,7 @@
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
@@ -763,39 +1045,39 @@
             observer.observe(el);
         });
     </script>
-        // Handle Newsletter Form Submission
-        function handleNewsletterSubmit(formId, msgId) {
-            var form = document.getElementById(formId);
-            if (!form) return;
-            
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                var formData = new FormData(this);
-                var msgDiv = document.getElementById(msgId);
-                
-                fetch('<?= base_url('Home/subscribe') ?>', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    msgDiv.style.display = 'block';
-                    if (data.success) {
-                        msgDiv.innerHTML = '<div class="alert alert-success" role="alert">' + data.message + '</div>';
-                        form.reset();
-                    } else {
-                        msgDiv.innerHTML = '<div class="alert alert-danger" role="alert">' + data.message + '</div>';
-                    }
-                })
-                .catch(error => {
-                    msgDiv.style.display = 'block';
-                    msgDiv.innerHTML = '<div class="alert alert-danger" role="alert">Error: ' + error + '</div>';
-                });
-            });
-        }
-        
-        // Initialize both newsletter forms
-        handleNewsletterSubmit('newsletterForm1', 'newsletterMsg1');
-        handleNewsletterSubmit('newsletterForm2', 'newsletterMsg2');
+    // Handle Newsletter Form Submission
+    function handleNewsletterSubmit(formId, msgId) {
+    var form = document.getElementById(formId);
+    if (!form) return;
+
+    form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var formData = new FormData(this);
+    var msgDiv = document.getElementById(msgId);
+
+    fetch('<?= base_url('Home/subscribe') ?>', {
+    method: 'POST',
+    body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+    msgDiv.style.display = 'block';
+    if (data.success) {
+    msgDiv.innerHTML = '<div class="alert alert-success" role="alert">' + data.message + '</div>';
+    form.reset();
+    } else {
+    msgDiv.innerHTML = '<div class="alert alert-danger" role="alert">' + data.message + '</div>';
+    }
+    })
+    .catch(error => {
+    msgDiv.style.display = 'block';
+    msgDiv.innerHTML = '<div class="alert alert-danger" role="alert">Error: ' + error + '</div>';
+    });
+    });
+    }
+
+    // Initialize both newsletter forms
+    handleNewsletterSubmit('newsletterForm1', 'newsletterMsg1');
+    handleNewsletterSubmit('newsletterForm2', 'newsletterMsg2');
     </script>
