@@ -29,6 +29,8 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default route.
 $routes->get('/', 'Home::index');
+$routes->post('feedback/store', 'FeedbackPublic::store');
+
 
 // Contoh rute untuk halaman "Sekolah"
 $routes->get('sekolah', 'Sekolah::daftar');

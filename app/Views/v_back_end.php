@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,65 +16,66 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="<?= base_url('AdminLTE') ?>/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url('AdminLTE') ?>/dist/css/adminlte.min.css">
-   <!-- summernote -->
+  <!-- summernote -->
   <link rel="stylesheet" href="<?= base_url('AdminLTE') ?>/plugins/summernote/summernote-bs4.min.css">
 </head>
+
 <body class="hold-transition sidebar-mini">
-<div class="wrapper">
+  <div class="wrapper">
 
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
-    </ul>
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="index3.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="#" class="nav-link">Contact</a>
+        </li>
+      </ul>
 
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-          <i class="fas fa-expand-arrows-alt"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('Auth/logout') ?>">
-          <i class="fas fa-sign-out-alt"></i> Log Out
-        </a>
-      </li>
-    </ul>
-  </nav>
-  <!-- /.navbar -->
+      <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+            <i class="fas fa-expand-arrows-alt"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<?= base_url('Auth/logout') ?>">
+            <i class="fas fa-sign-out-alt"></i> Log Out
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.navbar -->
 
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="<?= base_url('Admin/Dashboard') ?>" class="brand-link">
-      <img src="<?= base_url('AdminLTE') ?>/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
-    </a>
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Brand Logo -->
+      <a href="<?= base_url('Admin/Dashboard') ?>" class="brand-link">
+        <img src="<?= base_url('AdminLTE') ?>/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">AdminLTE 3</span>
+      </a>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="<?= base_url('AdminLTE') ?>/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <img src="<?= base_url('AdminLTE') ?>/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          </div>
+          <div class="info">
+            <a href="#" class="d-block"><?= session()->get('nama_user') ?></a>
+          </div>
         </div>
-        <div class="info">
-          <a href="#" class="d-block"><?= session()->get('nama_user') ?></a>
-        </div>
-      </div>
 
-      <!-- SidebarSearch Form -->
-      <!-- <div class="form-inline">
+        <!-- SidebarSearch Form -->
+        <!-- <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
           <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
           <div class="input-group-append">
@@ -85,224 +86,232 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
       </div> -->
 
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-          <!-- Add icons to the links using the .nav-icon class
+            <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-               <li class="nav-item <?=  (isset($menu) ? $menu : '')=='profile' ? 'menu-open' : '' ?>">
-            <a href="#" class="nav-link <?=  (isset($menu) ? $menu : '')=='profile' ? 'active' : '' ?>">
-              <i class="nav-icon fas fa-university"></i>
-              <p>
-               Profile Kampus
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-              <a href="<?= base_url('Admin/Profile/sejarah') ?>" class="nav-link <?=  (isset($submenu) ? $submenu : '')=='logo' ? 'active' : '' ?>">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Sejarah Kampus</p>
+            <li class="nav-item <?= (isset($menu) ? $menu : '') == 'profile' ? 'menu-open' : '' ?>">
+              <a href="#" class="nav-link <?= (isset($menu) ? $menu : '') == 'profile' ? 'active' : '' ?>">
+                <i class="nav-icon fas fa-university"></i>
+                <p>
+                  Profile Kampus
+                  <i class="right fas fa-angle-left"></i>
+                </p>
               </a>
-              </li>
-              <li class="nav-item">
-              <a href="<?= base_url('Admin/Profile/visimisi') ?>" class="nav-link <?=  (isset($submenu) ? $submenu : '')=='header' ? 'active' : '' ?>">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Visi & Misi</p>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?= base_url('Admin/Profile/sejarah') ?>" class="nav-link <?= (isset($submenu) ? $submenu : '') == 'logo' ? 'active' : '' ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Sejarah Kampus</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url('Admin/Profile/visimisi') ?>" class="nav-link <?= (isset($submenu) ? $submenu : '') == 'header' ? 'active' : '' ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Visi & Misi</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url('admin/Profile/organisasi') ?>" class="nav-link <?= (isset($submenu) ? $submenu : '') == 'organisasi' ? 'active' : '' ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Struktur Organisasi</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url('admin/Setting/sambutan') ?>" class="nav-link <?= (isset($submenu) ? $submenu : '') == 'sambutan' ? 'active' : '' ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Sambutan</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="<?= base_url('Admin/Dashboard') ?>" class="nav-link <?= (isset($menu) ? $menu : '') == 'dashboard' ? 'active' : '' ?>">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  Dashboard
+                </p>
               </a>
-              </li>
-              <li class="nav-item">
-              <a href="<?= base_url('admin/Profile/organisasi') ?>" class="nav-link <?=  (isset($submenu) ? $submenu : '')=='organisasi' ? 'active' : '' ?>">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Struktur Organisasi</p>
-              </a>
-              </li>
-              <li class="nav-item">
-              <a href="<?= base_url('admin/Setting/sambutan') ?>" class="nav-link <?=  (isset($submenu) ? $submenu : '')=='sambutan' ? 'active' : '' ?>">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Sambutan</p>
-              </a>
-              </li> 
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="<?= base_url('Admin/Dashboard') ?>" class="nav-link <?= (isset($menu) ? $menu : '') == 'dashboard' ? 'active' : '' ?>">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
+            </li>
+            <li class="nav-item">
               <a href="<?= base_url('Admin/Slider') ?>" class="nav-link <?= (isset($menu) ? $menu : '') == 'slider' ? 'active' : '' ?>">
-              <i class="nav-icon fas fa-window-maximize"></i>
-              <p>
-                Slider
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
+                <i class="nav-icon fas fa-window-maximize"></i>
+                <p>
+                  Slider
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="<?= base_url('Admin/Prodi') ?>" class="nav-link <?= (isset($menu) ? $menu : '') == 'prodi' ? 'active' : '' ?>">
-              <i class="nav-icon fas fa-graduation-cap"></i>
-              <p>
-                Prodi
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
+                <i class="nav-icon fas fa-graduation-cap"></i>
+                <p>
+                  Prodi
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="<?= base_url('Admin/Dosen') ?>" class="nav-link <?= (isset($menu) ? $menu : '') == 'dosen' ? 'active' : '' ?>">
-              <i class="nav-icon fas fa-chalkboard-teacher"></i>
-              <p>
-                Dosen
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
+                <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                <p>
+                  Dosen
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="<?= base_url('Admin/App') ?>" class="nav-link <?= (isset($menu) ? $menu : '') == 'app' ? 'active' : '' ?>">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                App
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="<?= base_url('Admin/User') ?>" class="nav-link <?= (isset($menu) ? $menu : '') == 'user' ? 'active' : '' ?>">
-              <i class="nav-icon fas fa-user"></i>
-              <p>
-                User
-              </p>
-            </a>
-          </li>
-          <li class="nav-item <?=  (isset($menu) ? $menu : '')=='setting' ? 'menu-open' : '' ?>">
-            <a href="#" class="nav-link <?=  (isset($menu) ? $menu : '')=='setting' ? 'active' : '' ?>">
-              <i class="nav-icon fas fa-cogs"></i>
-              <p>
-               Pengaturan
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-              <a href="<?= base_url('Admin/Setting/logo') ?>" class="nav-link <?=  (isset($submenu) ? $submenu : '')=='logo' ? 'active' : '' ?>">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Logo Kampus</p>
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  App
+                </p>
               </a>
-              </li>
-              <li class="nav-item">
-              <a href="<?= base_url('Admin/Setting/header') ?>" class="nav-link <?=  (isset($submenu) ? $submenu : '')=='header' ? 'active' : '' ?>">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Header</p>
+            </li>
+            <li class="nav-item">
+              <a href="<?= base_url('Admin/User') ?>" class="nav-link <?= (isset($menu) ? $menu : '') == 'user' ? 'active' : '' ?>">
+                <i class="nav-icon fas fa-user"></i>
+                <p>
+                  User
+                </p>
               </a>
-              </li>
-              <li class="nav-item">
-              <a href="<?= base_url('admin/Setting/kampus') ?>" class="nav-link <?=  (isset($submenu) ? $submenu : '')=='kampus' ? 'active' : '' ?>">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Kampus</p>
+            </li>
+            <li class="nav-item">
+              <a href="<?= base_url('Admin/Feedback') ?>" class="nav-link <?= (isset($menu) ? $menu : '') == 'feedback' ? 'active' : '' ?>">
+                <i class="nav-icon fas fa-comments"></i>
+                <p>
+                  Feedback
+                </p>
               </a>
-              </li>
-              <li class="nav-item">
-              <a href="<?= base_url('admin/Setting/sambutan') ?>" class="nav-link <?=  (isset($submenu) ? $submenu : '')=='sambutan' ? 'active' : '' ?>">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Sambutan</p>
+            </li>
+            <li class="nav-item <?= (isset($menu) ? $menu : '') == 'setting' ? 'menu-open' : '' ?>">
+              <a href="#" class="nav-link <?= (isset($menu) ? $menu : '') == 'setting' ? 'active' : '' ?>">
+                <i class="nav-icon fas fa-cogs"></i>
+                <p>
+                  Pengaturan
+                  <i class="right fas fa-angle-left"></i>
+                </p>
               </a>
-              </li> 
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Simple Link
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?= base_url('Admin/Setting/logo') ?>" class="nav-link <?= (isset($submenu) ? $submenu : '') == 'logo' ? 'active' : '' ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Logo Kampus</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url('Admin/Setting/header') ?>" class="nav-link <?= (isset($submenu) ? $submenu : '') == 'header' ? 'active' : '' ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Header</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url('admin/Setting/kampus') ?>" class="nav-link <?= (isset($submenu) ? $submenu : '') == 'kampus' ? 'active' : '' ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Kampus</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url('admin/Setting/sambutan') ?>" class="nav-link <?= (isset($submenu) ? $submenu : '') == 'sambutan' ? 'active' : '' ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Sambutan</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Simple Link
+                  <span class="right badge badge-danger">New</span>
+                </p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0"><?= $judul ?> <span><?= $subjudul ?></span></h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#"><?= $judul ?></a></li>
+                <li class="breadcrumb-item active"><?= $subjudul ?></li>
+              </ol>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content-header -->
+
+      <!-- Main content -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <!-- content -->
+
+            <?php
+            if ($page) {
+              // Prepare data array with all variables available in current scope
+              $viewData = get_defined_vars();
+              echo view($page, $viewData);
+            }
+            ?>
+
+            <!-- end-content -->
+          </div>
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content -->
     </div>
-    <!-- /.sidebar -->
-  </aside>
+    <!-- /.content-wrapper -->
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0"><?= $judul ?> <span><?= $subjudul ?></span></h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#"><?= $judul ?></a></li>
-              <li class="breadcrumb-item active"><?= $subjudul ?></li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
 
-    <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <!-- content -->
-
-          <?php
-          if ($page) {
-            // Prepare data array with all variables available in current scope
-            $viewData = get_defined_vars();
-            echo view($page, $viewData);
-          }
-          ?>
-
-          <!-- end-content -->
-        </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content -->
+    <!-- Main Footer -->
+    <footer class="main-footer">
+      <!-- To the right -->
+      <div class="float-right d-none d-sm-inline">
+        Anything you want
+      </div>
+      <!-- Default to the left -->
+      <strong>Copyright &copy; <?= date('Y') ?> <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    </footer>
   </div>
-  <!-- /.content-wrapper -->
+  <!-- ./wrapper -->
 
+  <!-- REQUIRED SCRIPTS -->
 
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-      Anything you want
-    </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; <?= date('Y') ?> <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
-</div>
-<!-- ./wrapper -->
+  <!-- jQuery -->
+  <script src="<?= base_url('AdminLTE') ?>/plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="<?= base_url('AdminLTE') ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="<?= base_url('AdminLTE') ?>/dist/js/adminlte.min.js"></script>
+  <!-- Summernote -->
+  <script src="<?= base_url('AdminLTE') ?>/plugins/summernote/summernote-bs4.min.js"></script>
+  <script>
+    $(function() {
+      // Summernote - initialize all editors with class 'summernote'
+      $('.summernote').summernote()
 
-<!-- REQUIRED SCRIPTS -->
-
-<!-- jQuery -->
-<script src="<?= base_url('AdminLTE') ?>/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="<?= base_url('AdminLTE') ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="<?= base_url('AdminLTE') ?>/dist/js/adminlte.min.js"></script>
-<!-- Summernote -->
-<script src="<?= base_url('AdminLTE') ?>/plugins/summernote/summernote-bs4.min.js"></script>
-<script>
-  $(function () {
-    // Summernote - initialize all editors with class 'summernote'
-    $('.summernote').summernote()
-
-    // CodeMirror
-    CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
-      mode: "htmlmixed",
-      theme: "monokai"
-    });
-  })
-</script>
+      // CodeMirror
+      CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+        mode: "htmlmixed",
+        theme: "monokai"
+      });
+    })
+  </script>
 </body>
 
 </html>
